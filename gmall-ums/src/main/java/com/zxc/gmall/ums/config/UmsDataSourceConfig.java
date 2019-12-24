@@ -1,4 +1,4 @@
-package com.zxc.gmall.pms.config;
+package com.zxc.gmall.ums.config;
 
 import io.shardingjdbc.core.api.MasterSlaveDataSourceFactory;
 import org.springframework.context.annotation.Bean;
@@ -7,13 +7,12 @@ import org.springframework.util.ResourceUtils;
 
 import javax.sql.DataSource;
 import java.io.File;
-import java.io.FileNotFoundException;
 
 @Configuration
-public class PmsDataSourceConfig {
+public class UmsDataSourceConfig {
 
     /**
-     * 配置shardingjdbc
+     * 配置Shardingjdbc
      * @return
      * @throws Exception
      */

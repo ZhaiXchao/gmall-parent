@@ -2,6 +2,8 @@ package com.zxc.gmall.pms.service;
 
 import com.zxc.gmall.pms.entity.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zxc.gmall.vo.PageInfoVo;
+import com.zxc.gmall.vo.product.PmsProductQueryParam;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ProductService extends IService<Product> {
 
+    PageInfoVo productPageInfo(PmsProductQueryParam productQueryParam);
 }
