@@ -50,7 +50,8 @@ public class UmsAdminController {
         Admin admin = null;
         //TODO 完成注册功能
         log.debug("获取的数据；{}",umsAdminParam);
-
+        if (true)
+            throw new NullPointerException("");
         return new CommonResult().success(umsAdminParam);
     }
 

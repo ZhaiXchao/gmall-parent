@@ -43,6 +43,14 @@ public class CommonResult {
         this.message = "操作失败";
         return this;
     }
+    /**
+     * 指定失败提示信息
+     */
+    public CommonResult failed(String message) {
+        this.code = FAILED;
+        this.message = message;
+        return this;
+    }
 
     /**
      * 参数验证失败使用
