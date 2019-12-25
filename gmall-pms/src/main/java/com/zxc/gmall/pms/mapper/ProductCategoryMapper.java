@@ -2,6 +2,8 @@ package com.zxc.gmall.pms.mapper;
 
 import com.zxc.gmall.pms.entity.ProductCategory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zxc.gmall.vo.product.PmsProductAttributeCategoryItem;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -13,7 +15,8 @@ import java.util.List;
  * @author Lfy
  * @since 2019-12-23
  */
+@Mapper
 public interface ProductCategoryMapper extends BaseMapper<ProductCategory> {
 
-    List<ProductCategory> listCategoryWithChildren(Integer i);
+    List<PmsProductAttributeCategoryItem> listCategoryWithChildren(Integer i);
 }

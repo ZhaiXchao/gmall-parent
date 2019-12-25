@@ -1,8 +1,13 @@
 package com.zxc.gmall.admin.pms.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.zxc.gmall.pms.entity.ProductAttribute;
+import com.zxc.gmall.pms.entity.ProductAttributeCategory;
+import com.zxc.gmall.pms.entity.ProductCategory;
+import com.zxc.gmall.pms.entity.ProductCategoryAttributeRelation;
 import com.zxc.gmall.pms.service.ProductAttributeService;
 import com.zxc.gmall.to.CommonResult;
+import com.zxc.gmall.vo.PageInfoVo;
 import com.zxc.gmall.vo.product.PmsProductAttributeParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -16,6 +21,7 @@ import java.util.List;
 /**
  * 商品属性管理Controller
  */
+@CrossOrigin
 @RestController
 @Api(tags = "PmsProductAttributeController", description = "商品属性管理")
 @RequestMapping("/productAttribute")
@@ -26,12 +32,14 @@ public class PmsProductAttributeController {
     @ApiOperation("根据分类查询属性列表或参数列表")
     @ApiImplicitParams({@ApiImplicitParam(name = "type", value = "0表示属性，1表示参数", required = true, paramType = "query", dataType = "integer")})
     @GetMapping(value = "/list/{cid}")
-    public Object getList(@PathVariable Long cid,
+    public Object getList(@PathVariable(value = "cid") Long cid,
                           @RequestParam(value = "type") Integer type,
                           @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                           @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         //TODO 根据分类查询属性列表或参数列表
-        return new CommonResult().success(null);
+        PageInfoVo attrs = productAttributeService.listproductAttributePageInfo(cid,type,pageSize,pageNum);
+
+        return new CommonResult().success(attrs);
     }
 
     @ApiOperation("添加商品属性信息")
@@ -68,4 +76,5 @@ public class PmsProductAttributeController {
         //TODO 根据分类查询属性列表或参数列表
         return new CommonResult().success(null);
     }
+
 }

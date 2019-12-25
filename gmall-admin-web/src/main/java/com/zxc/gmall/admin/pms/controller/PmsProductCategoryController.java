@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.zxc.gmall.pms.entity.ProductCategory;
 import com.zxc.gmall.pms.service.ProductCategoryService;
 import com.zxc.gmall.to.CommonResult;
+import com.zxc.gmall.vo.product.PmsProductAttributeCategoryItem;
 import com.zxc.gmall.vo.product.PmsProductCategoryParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -48,6 +49,7 @@ public class PmsProductCategoryController {
                           @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                           @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         //TODO 分页查询商品分类
+        //productCategoryService.listCategoryPageInfo(parentId.intValue());
         return new CommonResult().success(null);
     }
 
@@ -84,7 +86,7 @@ public class PmsProductCategoryController {
     public Object listWithChildren() {
         //TODO 查询所有一级分类及子分类
         //指定查询的分类级别冰返回其分类信息及其子分类
-        List<ProductCategory> items = productCategoryService.listCategoryWithChildren(0);
+        List<PmsProductAttributeCategoryItem> items = productCategoryService.listCategoryWithChildren(0);
 
         return new CommonResult().success(items);
     }

@@ -2,6 +2,7 @@ package com.zxc.gmall.pms.service;
 
 import com.zxc.gmall.pms.entity.ProductAttribute;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zxc.gmall.vo.PageInfoVo;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ProductAttributeService extends IService<ProductAttribute> {
 
+    PageInfoVo listproductAttributePageInfo(Long cid, Integer type, Integer pageSize, Integer pageNum);
 }

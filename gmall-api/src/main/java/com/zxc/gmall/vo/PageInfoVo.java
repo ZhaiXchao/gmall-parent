@@ -1,5 +1,6 @@
 package com.zxc.gmall.vo;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -31,4 +32,13 @@ public class PageInfoVo implements Serializable {
     private List<? extends Object> list;
 
 
+    /**
+     * 分页工具类
+     * @param iPage
+     * @param pageSize
+     * @return
+     */
+    public static PageInfoVo getVo(IPage iPage, Integer pageSize){
+        return new PageInfoVo(iPage.getTotal(),iPage.getPages(),pageSize,iPage.getCurrent(),iPage.getRecords());
+    }
 }

@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * logstash整合
@@ -12,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 3.在kibana里面简历好日志的索引
  */
 @EnableDubbo
-@MapperScan(basePackages = "com.zxc.gmall.pms.mapper")
+@MapperScan(basePackages = "com.zxc.gmall.pms.mapper")//包扫描DAO接口映射文件
 @SpringBootApplication
 public class GmallPmsApplication {
 
