@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zxc.gmall.pms.entity.ProductCategory;
 import com.zxc.gmall.pms.mapper.ProductCategoryMapper;
 import com.zxc.gmall.pms.service.ProductCategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMapper, ProductCategory> implements ProductCategoryService {
 
+    @Autowired
+    ProductCategoryMapper categoryMapper;
+
+    /**
+     * 查询分类信息
+     * @param i
+     * @return
+     */
+    @Override
+    public List<ProductCategory> listCategoryWithChildren(Integer i) {
+
+
+        return categoryMapper.listCategoryWithChildren(i);
+    }
 }

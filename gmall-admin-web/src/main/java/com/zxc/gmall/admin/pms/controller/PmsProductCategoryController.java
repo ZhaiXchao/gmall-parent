@@ -1,6 +1,7 @@
 package com.zxc.gmall.admin.pms.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.zxc.gmall.pms.entity.ProductCategory;
 import com.zxc.gmall.pms.service.ProductCategoryService;
 import com.zxc.gmall.to.CommonResult;
 import com.zxc.gmall.vo.product.PmsProductCategoryParam;
@@ -82,6 +83,9 @@ public class PmsProductCategoryController {
     @GetMapping(value = "/list/withChildren")
     public Object listWithChildren() {
         //TODO 查询所有一级分类及子分类
-        return new CommonResult().success(null);
+        //指定查询的分类级别冰返回其分类信息及其子分类
+        List<ProductCategory> items = productCategoryService.listCategoryWithChildren(0);
+
+        return new CommonResult().success(items);
     }
 }
