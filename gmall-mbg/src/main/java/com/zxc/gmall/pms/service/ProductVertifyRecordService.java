@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author Lfy
- * @since 2019-12-23
+ * @since 2019-12-25
  */
 public interface ProductVertifyRecordService extends IService<ProductVertifyRecord> {
 
