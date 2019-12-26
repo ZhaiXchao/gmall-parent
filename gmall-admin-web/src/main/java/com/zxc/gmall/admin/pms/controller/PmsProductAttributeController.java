@@ -37,7 +37,7 @@ public class PmsProductAttributeController {
                           @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                           @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         //TODO 根据分类查询属性列表或参数列表
-        PageInfoVo attrs = productAttributeService.listproductAttributePageInfo(cid,type,pageSize,pageNum);
+        PageInfoVo attrs = productAttributeService.listCategoryAttributePageInfo(cid,type,pageSize,pageNum);
 
         return new CommonResult().success(attrs);
     }

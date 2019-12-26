@@ -28,7 +28,9 @@ public class PmsProductController {
     @PostMapping(value = "/create")
     public Object create(@RequestBody PmsProductParam productParam,
                          BindingResult bindingResult) {
-        //TODO 查询所有一级分类及子分类
+
+        productService.saveProductMutilateInfo(productParam);
+
         return new CommonResult().success(null);
     }
 

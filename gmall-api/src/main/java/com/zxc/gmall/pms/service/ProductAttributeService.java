@@ -14,5 +14,5 @@ import com.zxc.gmall.vo.PageInfoVo;
  */
 public interface ProductAttributeService extends IService<ProductAttribute> {
 
-    PageInfoVo listproductAttributePageInfo(Long cid, Integer type, Integer pageSize, Integer pageNum);
+    PageInfoVo listCategoryAttributePageInfo(Long cid, Integer type, Integer pageSize, Integer pageNum);
 }
